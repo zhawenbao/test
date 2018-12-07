@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('a');
+Route::prefix('admin')->group(function () { //后台路由
+    Route::get('index', "Admin\Index@index"); //首页
+    Route::get('welcome', "Admin\Index@welcome"); //欢迎页面
+
 });
-Route::get('/user', function(){
-	return '<h1>可不可以和你在一起</h1>';
-});
+//Route::get('admin.index', 'Admin/Index@index');
