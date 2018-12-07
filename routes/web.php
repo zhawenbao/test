@@ -19,6 +19,10 @@ Route::prefix('admin')->group(function () { //后台路由
     Route::get('picture_add', "Admin\Picture@add"); //添加图片
     Route::get('picture_list', "Admin\Picture@list"); //图片列表
     Route::get('picture_show', "Admin\Picture@show"); //图片编辑
+    Route::get('goods_list', "Admin\Goods@list"); //商品列表
+    Route::get('goods_add', "Admin\Goods@add"); //商品列表
+    Route::get('goods_brand', "Admin\Goods@brand"); //商品列表
+    Route::get('goods_category', "Admin\Goods@category"); //商品列表
 
 });
 //Route::get('admin.index', 'Admin/Index@index');
