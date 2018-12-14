@@ -5,6 +5,8 @@
  * @author auto create
  * @since 1.0, 2016-11-17 11:46:00
  */
+namespace App\Libs\alipay\aop\request;
+
 class AlipayTradeWapPayRequest
 {
 	/** 

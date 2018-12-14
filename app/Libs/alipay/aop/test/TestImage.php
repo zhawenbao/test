@@ -1,6 +1,6 @@
 <?php
 /**
- * Alipay.com Inc.
+ * alipayWap.com Inc.
  * Copyright (c) 2004-2014 All Rights Reserved.
  */
 

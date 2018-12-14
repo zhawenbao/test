@@ -1,4 +1,5 @@
 <?php
+namespace  App\Libs\alipay\aop;
 
 require_once 'AopEncrypt.php';
 

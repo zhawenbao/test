@@ -24,5 +24,9 @@ Route::prefix('admin')->group(function () { //后台路由
     Route::get('goods_brand', "Admin\Goods@brand"); //商品列表
     Route::get('goods_category', "Admin\Goods@category"); //商品列表
 
+    Route::get('wappay','AlipayWap@alipayWapPay');
+    Route::get('return','AlipayWap@alipayReturn');
+    Route::get('notify','AlipayWap@alipayNotify');
+
 });
 //Route::get('admin.index', 'Admin/Index@index');
