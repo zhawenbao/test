@@ -14,7 +14,7 @@ use App\Http\Controllers\Controller;
 use App\libs\alipay\wappay\buildermodel\AlipayTradeWapPayContentBuilder;
 use App\libs\alipay\wappay\service\AlipayTradeService;
 
-class alipayWap extends Controller
+class AlipayWap extends Controller
 {
     public function alipayWapPay(Request $request) {
         $out_trade_no = getTradeNOString();          //公共方法生成唯一订单号
