@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\libs\alipay\wappay\buildermodel\AlipayTradeWapPayContentBuilder;
 use App\libs\alipay\wappay\service\AlipayTradeService;
+use PhpParser\Node\Scalar\MagicConst\Dir;
 
 
 class Index extends Controller
@@ -23,7 +24,7 @@ class Index extends Controller
         $body = 'test test!';
         $timeout_express="1m";
 
-        require_once dir . '../app/Libs/alipay/wappay/buildermodel/AlipayTradeWapPayContentBuilder.php';
+        require_once Dir . '../app/Libs/alipay/wappay/buildermodel/AlipayTradeWapPayContentBuilder.php';
         $payRequestBuilder = new AlipayTradeWapPayContentBuilder();
         $payRequestBuilder->setBody($body);
 
