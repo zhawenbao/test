@@ -10,8 +10,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Libs\alipay\wappay\buildermodel;
+use App\Libs\alipay\wappay\buildermodel\AlipayTradeCloseContentBuilder;
 use App\libs\alipay\wappay\service\AlipayTradeService;
+use App\Libs\alipay\wappay\buildermodel\AlipayTradeWapPayContentBuilder;
 
 class AlipayWap extends Controller
 {
