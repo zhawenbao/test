@@ -23,6 +23,7 @@ class Index extends Controller
         $body = 'test test!';
         $timeout_express="1m";
 
+        require_once '../../../Libs/alipay/wappay/buildermodel/AlipayTradeWapPayContentBuilder.php';
         $payRequestBuilder = new AlipayTradeWapPayContentBuilder();
         $payRequestBuilder->setBody($body);
 
