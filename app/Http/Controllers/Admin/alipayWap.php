@@ -10,13 +10,13 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\libs\alipay\wappay\buildermodel\AlipayTradeWapPayContentBuilder;
 use App\libs\alipay\wappay\service\AlipayTradeService;
 
 class AlipayWap extends Controller
 {
     public function alipayWapPay(Request $request) {
+        return 'one'; exit;
         $out_trade_no =date('YmdHis111');          //公共方法生成唯一订单号
         $subject = 'test';                           //数据仅供测试，下同
         $total_amount = 0.01;
@@ -36,6 +36,7 @@ class AlipayWap extends Controller
         $payResponse = new AlipayTradeService();
 
         $result=$payResponse->wapPay($payRequestBuilder,config('alipay.return_url'),config('alipay.notify_url'));
+
 
 
     }
