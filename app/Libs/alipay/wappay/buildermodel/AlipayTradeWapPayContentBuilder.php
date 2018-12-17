@@ -8,7 +8,9 @@
  */
 namespace App\Libs\alipay\wappay\buildermodel;
 
-class AlipayTradeWapPayContentBuilder
+use App\Http\Controllers\Controller;
+
+class AlipayTradeWapPayContentBuilder extends Controller
 {
 
     // 订单描述，可以对交易或商品进行一个详细地描述，比如填写"购买商品2件共15.00元"
