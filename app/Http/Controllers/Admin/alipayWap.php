@@ -8,8 +8,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Libs\alipay\wappay\buildermodel\AlipayTradeCloseContentBuilder;
 use App\libs\alipay\wappay\service\AlipayTradeService;
 use App\Libs\alipay\wappay\buildermodel\AlipayTradeWapPayContentBuilder;
@@ -20,7 +20,6 @@ class AlipayWap extends Controller
     public function index()
     {
         return 1;
-        return view();
     }
     /**
      * @param Request $request

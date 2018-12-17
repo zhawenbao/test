@@ -23,11 +23,8 @@ Route::prefix('admin')->group(function () { //后台路由
     Route::get('goods_add', "Admin\Goods@add"); //商品列表
     Route::get('goods_brand', "Admin\Goods@brand"); //商品列表
     Route::get('goods_category', "Admin\Goods@category"); //商品列表
+    Route::get('pay', "Admin\Pay@index"); //支付首页
+    Route::get('dopay', "Admin\Pay@dopay"); //支付首页
 
-    //支付接口
-    Route::get('pay', "Admin\AlipayWap@index");
-    Route::get('return','Admin\AlipayWap@alipayReturn');
-    Route::get('notify','Admin\AlipayWap@alipayNotify');
 
 });
-//Route::get('admin.index', 'Admin/Index@index');
