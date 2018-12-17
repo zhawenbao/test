@@ -16,7 +16,17 @@ use App\Libs\alipay\wappay\buildermodel\AlipayTradeWapPayContentBuilder;
 
 class AlipayWap extends Controller
 {
-    public function index(Request $request) {
+
+    public function index()
+    {
+        return 1;
+        return view();
+    }
+    /**
+     * @param Request $request
+     * @return string
+     */
+    public function AlipayWap(Request $request) {
         return 'one';
         $out_trade_no =date('YmdHis111');          //公共方法生成唯一订单号
         $subject = 'test';                           //数据仅供测试，下同
@@ -55,5 +65,11 @@ class AlipayWap extends Controller
      */
     public function alipayNotify() {
 
+    }
+
+    public function payHtml()
+    {
+
+        return view();
     }
 }

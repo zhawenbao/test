@@ -8,7 +8,6 @@
  */
 namespace App\Libs\alipay\wappay\buildermodel;
 
-use App\Http\Controllers\Controller;
 
 class AlipayTradeWapPayContentBuilder extends Controller
 {

@@ -25,7 +25,7 @@ Route::prefix('admin')->group(function () { //后台路由
     Route::get('goods_category', "Admin\Goods@category"); //商品列表
 
     //支付接口
-    Route::get('dopay','Admin\AlipayWap@index');
+    Route::get('pay', "Admin\AlipayWap@index");
     Route::get('return','Admin\AlipayWap@alipayReturn');
     Route::get('notify','Admin\AlipayWap@alipayNotify');
 
