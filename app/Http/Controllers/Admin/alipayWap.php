@@ -16,7 +16,7 @@ use App\libs\alipay\wappay\service\AlipayTradeService;
 class AlipayWap extends Controller
 {
     public function index(Request $request) {
-        return 'one'; exit;
+        return 'one';
         $out_trade_no =date('YmdHis111');          //公共方法生成唯一订单号
         $subject = 'test';                           //数据仅供测试，下同
         $total_amount = 0.01;
@@ -46,7 +46,7 @@ class AlipayWap extends Controller
 
      */
     public function alipayReturn() {
-
+        return 1;
     }
 
     /**
