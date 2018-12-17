@@ -11,7 +11,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Libs\alipay\wappay\buildermodel\AlipayTradeCloseContentBuilder;
-use App\libs\alipay\wappay\service\AlipayTradeService;
+use App\Libs\alipay\wappay\service\AlipayTradeService;
 use App\Libs\alipay\wappay\buildermodel\AlipayTradeWapPayContentBuilder;
 
 class Pay extends Controller
@@ -74,14 +74,13 @@ class Pay extends Controller
 
         $payRequestBuilder = new AlipayTradeWapPayContentBuilder();
         $payRequestBuilder->setBody($body);
-
         $payRequestBuilder->setSubject($subject);
         $payRequestBuilder->setOutTradeNo($out_trade_no);
         $payRequestBuilder->setTotalAmount($total_amount);
 
         $payRequestBuilder->setTimeExpress($timeout_express);
 
-
+//        require_once '../../..Libs/alipay/wappay/service/AlipayTradeService.php';
         $payResponse = new AlipayTradeService();
 
         $result=$payResponse->wapPay($payRequestBuilder,config('alipay.return_url'),config('alipay.notify_url'));
