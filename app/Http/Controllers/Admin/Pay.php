@@ -81,7 +81,7 @@ class Pay extends Controller
         $payRequestBuilder->setTimeExpress($timeout_express);
 
 //        require_once '../../..Libs/alipay/wappay/service/AlipayTradeService.php';
-        $payResponse = new AlipayTradeService();
+        $payResponse =new AlipayTradeService();
 
         $result=$payResponse->wapPay($payRequestBuilder,config('alipay.return_url'),config('alipay.notify_url'));
     }
