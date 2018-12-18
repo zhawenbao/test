@@ -144,6 +144,7 @@
 </header>
 <div id="main">
         <form name=alipayment action='{{ url('admin/dopay') }}' method=post target="_blank">
+            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
             <div id="body" style="clear:left">
                 <dl class="content">
                     <dt>商户订单号

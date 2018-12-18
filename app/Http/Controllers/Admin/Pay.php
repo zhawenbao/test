@@ -64,7 +64,7 @@ class Pay extends Controller
         return view("admin.pay.index");
     }
 
-    public function dopay(Request $request)
+    public function dopay()
     {
         $out_trade_no =date('YmdHis111');          //公共方法生成唯一订单号
         $subject = 'test';                           //数据仅供测试，下同
