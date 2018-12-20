@@ -94,59 +94,37 @@ class Pay extends Controller
         $aop = new AopClient();
         $aop->gatewayUrl = 'https://openapi.alipay.com/gateway.do';
         $aop->appId = '2088802812998540';
-        $aop->rsaPrivateKey = '-----BEGIN PRIVATE KEY-----
-MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDJqYXkT/LO9vNP
-mLI+E23tQ8sf0MIDEwxOrWGDqIaS94orcUrWZ59rJw1014yqNtMN1nzxbBGXoja3
-+Vzj6lQLDq0RvQ3lEbCwhM1LI+MA4oH/vmeXh+2i22S/7PN+FNRA9PeE9z95iAHS
-1aj/OaRGAZHyePLFFZ4ZPruhekfyOdJkDHalnyA10JDfyRdMltJs8duxf9Zycvfu
-eXj4oSkxje4YG8hUSZCJI6Ap0X+afJ80eIJvRzzzt0WwWQ9YPXHsVuBijrUDkuWZ
-hdtCb0UYO9v84u+TRuxmMR8bGBwnlwdnQLcDZxGc9CNtToK/qgZ6kh3m+IXCrjW9
-HFeSVYgjAgMBAAECggEAXWxMm/WxvdHH7FMIGBv2LBnhCy8yAiyb4gMOjujO110Y
-RIHqsqM0xnZEFKIbB2v4oIuCPHHdQIskoFxEfU28e5bj9LjJrBpi6ZPMa4gHjQxi
-PzFdWmTdYToUVZmXQAy0PBeAZ7gHTu0EM0FKVlrE0K2/iD4h8c3O/VEDqY41sG/o
-hBK73v/xy0aQETJTCmUqDyCkALTTvsG32vaHPdvyhSF6CjAt8QBaf+iQTpNS9hIE
-KfMK2WALNA+NojLC/gq7RtiMXWtmlYBC2eRGcnYdmuxdAgcixN0jyWRny25B2Duq
-8dTTzrFc8N2rb6y+q2QXRNMLT/ANyf1WbmR3HOajAQKBgQDoqVO6gQQXmtNWW6F0
-DaoswVzK3zvpUmXM3gjbNubIFt6OQOZkFvKZSf26X7NRQohqonSzHNqq7/kyDwg0
-5RwtU60uqk0Txx8A95pF75Pu8cw9zWFLSfZniP4v4IgExzoNJu6xOS6yjQbRIpr5
-YHjTfQwYOA+V0XJd1R5JzkbVgQKBgQDd5CUxzbVTb7jk0RV7W2N/u5jRGUnVTNzo
-T9Gse+TJ1flJZdlBY6BYGfIzM4tvydW/Wc5pmtRYTlde4v0DfUJK+5qZcdXaiBIu
-fpB5XaUTrm8UL7DR3FMvuRVptiPQuuZ5e+S7VQYyRStNNFjOiY5QsCZpfc7cHDW+
-XCRsRo0XowKBgEmq677/ANu0gzwx0UJc3UhEhWwbGO48z8z5dNZsYNB0JU3nkMua
-VIBi5Drx+GY/adBR1h+sgDRlvYKzLccJ0E0t1IUVGUis4M0+mROR00ZyO1hKQodD
-SQjpYIqqTocsyd3GOQfWcknIy6LGkUlq2XclfgHhJlYqtkqto2R9MwKBAoGAVQas
-fgYeeodwKTY5bhiZ6wNezplLIpIegGK9rMOY6wK0ULzXYGgltDzVA2u3/bEw1+84
-2ly7C8+RSUnfvCuOcJ8zIaNuWBwWI3zaLbeFnyITbH/N2Mz9j2bz3pst5DkKQfkI
-sAQnqLG6ow3xDcvGHgMx5PCRiOTCb1xtlJQAUtMCgYAcJ0PX6xD9ySc9fX8Vd0jy
-6ITmrYJS43lcmbCW9PShf1eDtZDTr0SStJppiK0G7Z2kmYr1HjkiSBfV4MInZhMm
-31rWtPL0ww0jiEFRhaiDvW5Lc74cMBbD3qw/4jcYQsyShs0inUqNToEionCyQqR+
-/0NKL3Yhl9S8RvdIS8NA+w==
------END PRIVATE KEY-----
-';
-        $aop->alipayrsaPublicKey='-----BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyamF5E/yzvbzT5iyPhNt
-7UPLH9DCAxMMTq1hg6iGkveKK3FK1mefaycNdNeMqjbTDdZ88WwRl6I2t/lc4+pU
-Cw6tEb0N5RGwsITNSyPjAOKB/75nl4ftottkv+zzfhTUQPT3hPc/eYgB0tWo/zmk
-RgGR8njyxRWeGT67oXpH8jnSZAx2pZ8gNdCQ38kXTJbSbPHbsX/WcnL37nl4+KEp
-MY3uGBvIVEmQiSOgKdF/mnyfNHiCb0c887dFsFkPWD1x7FbgYo61A5LlmYXbQm9F
-GDvb/OLvk0bsZjEfGxgcJ5cHZ0C3A2cRnPQjbU6Cv6oGepId5viFwq41vRxXklWI
-IwIDAQAB
+        $str = <<<EOD
+MIIEogIBAAKCAQEAyamF5E/yzvbzT5iyPhNt7UPLH9DCAxMMTq1hg6iGkveKK3FK1mefaycNdNeMqjbTDdZ88WwRl6I2t/lc4+pUCw6tEb0N5RGwsITNSyPjAOKB/75nl4ftottkv+zzfhTUQPT3hPc/eYgB0tWo/zmkRgGR8njyxRWeGT67oXpH8jnSZAx2pZ8gNdCQ38kXTJbSbPHbsX/WcnL37nl4+KEpMY3uGBvIVEmQiSOgKdF/mnyfNHiCb0c887dFsFkPWD1x7FbgYo61A5LlmYXbQm9FGDvb/OLvk0bsZjEfGxgcJ5cHZ0C3A2cRnPQjbU6Cv6oGepId5viFwq41vRxXklWIIwIDAQABAoIBAF1sTJv1sb3Rx+xTCBgb9iwZ4QsvMgIsm+IDDo7oztddGESB6rKjNMZ2RBSiGwdr+KCLgjxx3UCLJKBcRH1NvHuW4/S4yawaYumTzGuIB40MYj8xXVpk3WE6FFWZl0AMtDwXgGe4B07tBDNBSlZaxNCtv4g+IfHNzv1RA6mONbBv6IQSu97/8ctGkBEyUwplKg8gpAC0077Bt9r2hz3b8oUhegowLfEAWn/okE6TUvYSBCnzCtlgCzQPjaIywv4Ku0bYjF1rZpWAQtnkRnJ2HZrsXQIHIsTdI8lkZ8tuQdg7qvHU086xXPDdq2+svqtkF0TTC0/wDcn9Vm5kdxzmowECgYEA6KlTuoEEF5rTVluhdA2qLMFcyt876VJlzN4I2zbmyBbejkDmZBbymUn9ul+zUUKIaqJ0sxzaqu/5Mg8INOUcLVOtLqpNE8cfAPeaRe+T7vHMPc1hS0n2Z4j+L+CIBMc6DSbusTkuso0G0SKa+WB4030MGDgPldFyXdUeSc5G1YECgYEA3eQlMc21U2+45NEVe1tjf7uY0RlJ1Uzc6E/RrHvkydX5SWXZQWOgWBnyMzOLb8nVv1nOaZrUWE5XXuL9A31CSvuamXHV2ogSLn6QeV2lE65vFC+w0dxTL7kVabYj0LrmeXvku1UGMkUrTTRYzomOULAmaX3O3Bw1vlwkbEaNF6MCgYBJquu+/wDbtIM8MdFCXN1IRIVsGxjuPM/M+XTWbGDQdCVN55DLmlSAYuQ68fhmP2nQUdYfrIA0Zb2Csy3HCdBNLdSFFRlIrODNPpkTkdNGcjtYSkKHQ0kI6WCKqk6HLMndxjkH1nJJyMuixpFJatl3JX4B4SZWKrZKraNkfTMCgQKBgFUGrH4GHnqHcCk2OW4YmesDXs6ZSyKSHoBivazDmOsCtFC812BoJbQ81QNrt/2xMNfvONpcuwvPkUlJ37wrjnCfMyGjblgcFiN82i23hZ8iE2x/zdjM/Y9m896bLeQ5CkH5CLAEJ6ixuqMN8Q3Lxh4DMeTwkYjkwm9cbZSUAFLTAoGAHCdD1+sQ/cknPX1/FXdI8uiE5q2CUuN5XJmwlvT0oX9Xg7WQ069EkrSaaYitBu2dpJmK9R45IkgX1eDCJ2YTJt9a1rTy9MMNI4hBUYWog71uS3O+HDAWw96sP+I3GELMkobNIp1KjU6BIqJwskKkfv9DSi92IZfUvEb3SEvDQPs=
+EOD;
+//        $str = chunk_split($str, 64, "\n");
+//        $private_key = "-----BEGIN RSA PRIVATE KEY-----\n$str-----END RSA PRIVATE KEY-----\n";
+        $aop->rsaPrivateKey = $str;
+
+        $str1 = <<<EOD
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyamF5E/yzvbzT5iyPhNt7UPLH9DCAxMMTq1hg6iGkveKK3FK1mefaycNdNeMqjbTDdZ88WwRl6I2t/lc4+pUCw6tEb0N5RGwsITNSyPjAOKB/75nl4ftottkv+zzfhTUQPT3hPc/eYgB0tWo/zmkRgGR8njyxRWeGT67oXpH8jnSZAx2pZ8gNdCQ38kXTJbSbPHbsX/WcnL37nl4+KEpMY3uGBvIVEmQiSOgKdF/mnyfNHiCb0c887dFsFkPWD1x7FbgYo61A5LlmYXbQm9FGDvb/OLvk0bsZjEfGxgcJ5cHZ0C3A2cRnPQjbU6Cv6oGepId5viFwq41vRxXklWIIwIDAQAB
 -----END PUBLIC KEY-----
-';
+EOD;
+//        $str = chunk_split($str, 64, "\n");
+//        $public_key = "-----BEGIN PUBLIC KEY-----\n$str-----END PUBLIC KEY-----\n";
+
+        $aop->alipayrsaPublicKey=$str1;
         $aop->apiVersion = '1.0';
         $aop->signType = 'RSA2';
         $aop->postCharset='GBK';
         $aop->format='json';
+//        openssl_sign($data, $sign, $res, OPENSSL_ALGO_SHA256);
 
         $request = new AlipayFundTransToaccountTransferRequest();
         $request->setBizContent("{" .
             "\"out_biz_no\":\"3142321423432\"," .
             "\"payee_type\":\"ALIPAY_LOGONID\"," .
-            "\"payee_account\":\"abc@sina.com\"," .
-            "\"amount\":\"0.1\"," .
-            "\"payer_show_name\":\"上海交通卡退款\"," .
-            "\"payee_real_name\":\"张三\"," .
-            "\"remark\":\"转账备注\"" .
+            "\"payee_account\":\"13866569962\"," .
+            "\"amount\":\"1\"," .
+            "\"payer_show_name\":\"转账\"," .
+            "\"payee_real_name\":\"查文宝\"," .
+            "\"remark\":\"测试转账\"" .
             "  }");
         $result = $aop->execute($request);
 
