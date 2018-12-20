@@ -367,7 +367,7 @@ class AopClient {
 		if (strcasecmp($this->fileCharset, $this->postCharset)) {
 
 			// writeLog("本地文件字符集编码与表单提交编码不一致，请务必设置成一样，属性名分别为postCharset!");
-			throw new Exception("文件编码：[" . $this->fileCharset . "] 与表单提交编码：[" . $this->postCharset . "]两者不一致!");
+//			throw new Exception("文件编码：[" . $this->fileCharset . "] 与表单提交编码：[" . $this->postCharset . "]两者不一致!");
 		}
 
 		$iv = null;

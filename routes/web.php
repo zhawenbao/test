@@ -25,6 +25,9 @@ Route::prefix('admin')->group(function () { //后台路由
     Route::get('goods_category', "Admin\Goods@category"); //商品列表
     Route::get('pay', "Admin\Pay@index"); //支付首页
     Route::post('dopay', "Admin\Pay@dopay"); //支付首页
+    Route::get('maopao', "Admin\Index@maoPao"); //冒泡
+    Route::get('sort', "Admin\Index@phpSort"); //冒泡
+    Route::get('transfer', "Admin\Pay@transfer"); //转账
 
 
 });
