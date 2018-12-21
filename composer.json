@@ -62,5 +62,6 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    }
+    },
+    "lokielse/omnipay-alipay": "^2.0",
 }
