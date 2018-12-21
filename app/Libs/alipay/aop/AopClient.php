@@ -1,6 +1,6 @@
 <?php
 namespace  App\Libs\alipay\aop;
-
+use App\Libs\alipay\lotusphp_runtime\Logger\LtLogger;
 require_once 'AopEncrypt.php';
 
 class AopClient {
@@ -186,6 +186,7 @@ class AopClient {
 
 
 	protected function logCommunicationError($apiName, $requestUrl, $errorCode, $responseTxt) {
+        define("AOP_SDK_WORK_DIR", "/tmp/");
 		$localIp = isset ($_SERVER["SERVER_ADDR"]) ? $_SERVER["SERVER_ADDR"] : "CLI";
 		$logger = new LtLogger;
 		$logger->conf["log_file"] = rtrim(AOP_SDK_WORK_DIR, '\\/') . '/' . "logs/aop_comm_err_" . $this->appId . "_" . date("Y-m-d") . ".log";
@@ -815,6 +816,7 @@ class AopClient {
 	}
 
 	function parserJSONSign($responseJSon) {
+//	    dump($responseJSon);exit;
 
 		return $responseJSon->sign;
 	}

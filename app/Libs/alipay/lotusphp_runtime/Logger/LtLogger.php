@@ -1,4 +1,6 @@
 <?php
+
+namespace App\Libs\alipay\lotusphp_runtime\Logger;
 class LtLogger
 {
 	public $conf = array(

@@ -92,44 +92,33 @@ class Pay extends Controller
     public function transfer()
     {
         $aop = new AopClient();
-        $aop->gatewayUrl = 'https://openapi.alipay.com/gateway.do';
-        $aop->appId = '2088802812998540';
-        $str = <<<EOD
-MIIEogIBAAKCAQEAyamF5E/yzvbzT5iyPhNt7UPLH9DCAxMMTq1hg6iGkveKK3FK1mefaycNdNeMqjbTDdZ88WwRl6I2t/lc4+pUCw6tEb0N5RGwsITNSyPjAOKB/75nl4ftottkv+zzfhTUQPT3hPc/eYgB0tWo/zmkRgGR8njyxRWeGT67oXpH8jnSZAx2pZ8gNdCQ38kXTJbSbPHbsX/WcnL37nl4+KEpMY3uGBvIVEmQiSOgKdF/mnyfNHiCb0c887dFsFkPWD1x7FbgYo61A5LlmYXbQm9FGDvb/OLvk0bsZjEfGxgcJ5cHZ0C3A2cRnPQjbU6Cv6oGepId5viFwq41vRxXklWIIwIDAQABAoIBAF1sTJv1sb3Rx+xTCBgb9iwZ4QsvMgIsm+IDDo7oztddGESB6rKjNMZ2RBSiGwdr+KCLgjxx3UCLJKBcRH1NvHuW4/S4yawaYumTzGuIB40MYj8xXVpk3WE6FFWZl0AMtDwXgGe4B07tBDNBSlZaxNCtv4g+IfHNzv1RA6mONbBv6IQSu97/8ctGkBEyUwplKg8gpAC0077Bt9r2hz3b8oUhegowLfEAWn/okE6TUvYSBCnzCtlgCzQPjaIywv4Ku0bYjF1rZpWAQtnkRnJ2HZrsXQIHIsTdI8lkZ8tuQdg7qvHU086xXPDdq2+svqtkF0TTC0/wDcn9Vm5kdxzmowECgYEA6KlTuoEEF5rTVluhdA2qLMFcyt876VJlzN4I2zbmyBbejkDmZBbymUn9ul+zUUKIaqJ0sxzaqu/5Mg8INOUcLVOtLqpNE8cfAPeaRe+T7vHMPc1hS0n2Z4j+L+CIBMc6DSbusTkuso0G0SKa+WB4030MGDgPldFyXdUeSc5G1YECgYEA3eQlMc21U2+45NEVe1tjf7uY0RlJ1Uzc6E/RrHvkydX5SWXZQWOgWBnyMzOLb8nVv1nOaZrUWE5XXuL9A31CSvuamXHV2ogSLn6QeV2lE65vFC+w0dxTL7kVabYj0LrmeXvku1UGMkUrTTRYzomOULAmaX3O3Bw1vlwkbEaNF6MCgYBJquu+/wDbtIM8MdFCXN1IRIVsGxjuPM/M+XTWbGDQdCVN55DLmlSAYuQ68fhmP2nQUdYfrIA0Zb2Csy3HCdBNLdSFFRlIrODNPpkTkdNGcjtYSkKHQ0kI6WCKqk6HLMndxjkH1nJJyMuixpFJatl3JX4B4SZWKrZKraNkfTMCgQKBgFUGrH4GHnqHcCk2OW4YmesDXs6ZSyKSHoBivazDmOsCtFC812BoJbQ81QNrt/2xMNfvONpcuwvPkUlJ37wrjnCfMyGjblgcFiN82i23hZ8iE2x/zdjM/Y9m896bLeQ5CkH5CLAEJ6ixuqMN8Q3Lxh4DMeTwkYjkwm9cbZSUAFLTAoGAHCdD1+sQ/cknPX1/FXdI8uiE5q2CUuN5XJmwlvT0oX9Xg7WQ069EkrSaaYitBu2dpJmK9R45IkgX1eDCJ2YTJt9a1rTy9MMNI4hBUYWog71uS3O+HDAWw96sP+I3GELMkobNIp1KjU6BIqJwskKkfv9DSi92IZfUvEb3SEvDQPs=
-EOD;
-//        $str = chunk_split($str, 64, "\n");
-//        $private_key = "-----BEGIN RSA PRIVATE KEY-----\n$str-----END RSA PRIVATE KEY-----\n";
-        $aop->rsaPrivateKey = $str;
-
-        $str1 = <<<EOD
------BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyamF5E/yzvbzT5iyPhNt7UPLH9DCAxMMTq1hg6iGkveKK3FK1mefaycNdNeMqjbTDdZ88WwRl6I2t/lc4+pUCw6tEb0N5RGwsITNSyPjAOKB/75nl4ftottkv+zzfhTUQPT3hPc/eYgB0tWo/zmkRgGR8njyxRWeGT67oXpH8jnSZAx2pZ8gNdCQ38kXTJbSbPHbsX/WcnL37nl4+KEpMY3uGBvIVEmQiSOgKdF/mnyfNHiCb0c887dFsFkPWD1x7FbgYo61A5LlmYXbQm9FGDvb/OLvk0bsZjEfGxgcJ5cHZ0C3A2cRnPQjbU6Cv6oGepId5viFwq41vRxXklWIIwIDAQAB
------END PUBLIC KEY-----
-EOD;
-//        $str = chunk_split($str, 64, "\n");
-//        $public_key = "-----BEGIN PUBLIC KEY-----\n$str-----END PUBLIC KEY-----\n";
-
-        $aop->alipayrsaPublicKey=$str1;
+        $aop->gatewayUrl = config('alipay.notify_url');
+        $aop->appId = config('alipay.app_id');
+        $aop->rsaPrivateKey = config('alipay.merchant_private_key');
+        $aop->alipayrsaPublicKey=config('alipay.alipay_public_key');
         $aop->apiVersion = '1.0';
         $aop->signType = 'RSA2';
-        $aop->postCharset='GBK';
+        $aop->postCharset='UTF-8';
         $aop->format='json';
 //        openssl_sign($data, $sign, $res, OPENSSL_ALGO_SHA256);
-
+        dump($aop);
         $request = new AlipayFundTransToaccountTransferRequest();
         $request->setBizContent("{" .
-            "\"out_biz_no\":\"3142321423432\"," .
+            "\"out_biz_no\":\"3142321423962\"," .
             "\"payee_type\":\"ALIPAY_LOGONID\"," .
-            "\"payee_account\":\"13866569962\"," .
+            "\"payee_account\":\"15195880190\"," .
             "\"amount\":\"1\"," .
             "\"payer_show_name\":\"转账\"," .
-            "\"payee_real_name\":\"查文宝\"," .
+            "\"payee_real_name\":\"查文杰\"," .
             "\"remark\":\"测试转账\"" .
             "  }");
+        dump($request);
         $result = $aop->execute($request);
-
+        dump($result);
         $responseNode = str_replace(".", "_", $request->getApiMethodName()) . "_response";
+        dump($responseNode);
         $resultCode = $result->$responseNode->code;
+//        $resultCode =10000;
         if(!empty($resultCode)&&$resultCode == 10000){
             echo "成功";
         } else {
