@@ -1,6 +1,7 @@
 <?php
 namespace  App\Libs\alipay\aop;
 use App\Libs\alipay\lotusphp_runtime\Logger\LtLogger;
+use App\Libs\alipay\aop\SignData;
 require_once 'AopEncrypt.php';
 
 class AopClient {
