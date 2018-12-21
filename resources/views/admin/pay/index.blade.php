@@ -1,8 +1,16 @@
+<?php
+/* *
+ * 功能：支付宝电脑支付调试入口页面
+ * 修改日期：2017-03-30
+ * 说明：
+ * 以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
+ */
 
+?>
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>支付宝手机网站支付接口</title>
+	<title>支付宝电脑网站支付</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style>
     *{
@@ -14,6 +22,31 @@
     }
     body{
         font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    }
+    .tab-head{
+        margin-left:120px;
+        margin-bottom:10px;
+    }
+    .tab-content{
+        clear:left;
+        display: none;
+    }
+    h2{
+        border-bottom: solid #02aaf1 2px;
+        width: 200px;
+        height: 25px;
+        margin: 0;
+        float: left;
+        text-align: center;
+        font-size: 16px;
+    }
+    .selected{
+        color: #FFFFFF;
+        background-color: #02aaf1;
+    }
+    .show{
+        clear:left;
+        display: block;
     }
     .hidden{
         display:none;
@@ -140,12 +173,19 @@
 </head>
 <body text=#000000 bgColor="#ffffff" leftMargin=0 topMargin=4>
 <header class="am-header">
-        <h1>支付宝手机网站支付接口快速通道(接口名：alipay.trade.wap.pay)</h1>
+        <h1>支付宝电脑网站支付体验入口页</h1>
 </header>
 <div id="main">
-        <form name=alipayment action='{{ url('admin/dopay') }}' method=post target="_blank">
-            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-            <div id="body" style="clear:left">
+    <div id="tabhead" class="tab-head">
+        <h2 id="tab1" class="selected" name="tab">付 款</h2>
+        <h2 id="tab2" name="tab">交 易 查 询</h2>
+        <h2 id="tab3" name="tab">退 款</h2>
+        <h2 id="tab4" name="tab">退 款 查 询</h2>
+        <h2 id="tab5" name="tab">交 易 关 闭</h2>
+    </div>
+        <form name=alipayment action='{{ url("admin/pagePay") }}' method="post" target="_blank">
+            {{ csrf_field() }}
+            <div id="body1" class="show" name="divcontent">
                 <dl class="content">
                     <dt>商户订单号
 ：</dt>
@@ -173,13 +213,153 @@
                     <dt></dt>
                     <dd id="btn-dd">
                         <span class="new-btn-login-sp">
-                            <button class="new-btn-login" type="submit" style="text-align:center;">确 认</button>
+                            <button class="new-btn-login" type="submit" style="text-align:center;">付 款</button>
                         </span>
-                        <span class="note-help">如果您点击“确认”按钮，即表示您同意该次的执行操作。</span>
+                        <span class="note-help">如果您点击“付款”按钮，即表示您同意该次的执行操作。</span>
                     </dd>
                 </dl>
             </div>
 		</form>
+        <form name=tradequery action=pagepay/query.php method=post target="_blank">
+            {{ csrf_field() }}
+            <div id="body2" class="tab-content" name="divcontent">
+                <dl class="content">
+                    <dt>商户订单号
+：</dt>
+                    <dd>
+                        <input id="WIDTQout_trade_no" name="WIDTQout_trade_no" />
+                    </dd>
+                    <hr class="one_line">
+                    <dt>支付宝交易号
+：</dt>
+                    <dd>
+                        <input id="WIDTQtrade_no" name="WIDTQtrade_no" />
+                    </dd>
+                    <hr class="one_line">
+                    <dt></dt>
+                     <dd>
+                        <span style="line-height: 28px; color:red;">注意：商户订单号和支付宝交易号不能同时为空。 trade_no、  out_trade_no如果同时存在优先取trade_no</span>
+                    </dd>
+                    <dd id="btn-dd">
+                        <span class="new-btn-login-sp">
+                            <button class="new-btn-login" type="submit" style="text-align:center;">交 易 查 询</button>
+                        </span>
+                        <span class="note-help">商户订单号与支付宝交易号二选一，如果您点击“交易查询”按钮，即表示您同意该次的执行操作。</span> 
+                    </dd>
+                </dl>
+            </div>
+        </form>
+        <form name=traderefund action=pagepay/refund.php method=post target="_blank">
+            {{ csrf_field() }}
+            <div id="body3" class="tab-content" name="divcontent">
+                <dl class="content">
+                    <dt>商户订单号
+：</dt>
+                    <dd>
+                        <input id="WIDTRout_trade_no" name="WIDTRout_trade_no" />
+                    </dd>
+                    <hr class="one_line">
+                    <dt>支付宝交易号
+：</dt>
+                    <dd>
+                        <input id="WIDTRtrade_no" name="WIDTRtrade_no" />
+                    </dd>
+                    <hr class="one_line">
+                    <dt>退款金额
+：</dt>
+                    <dd>
+                        <input id="WIDTRrefund_amount" name="WIDTRrefund_amount" />
+                    </dd>
+                    <hr class="one_line">
+                    <dt>退款原因
+：</dt>
+                    <dd>
+                        <input id="WIDTRrefund_reason" name="WIDTRrefund_reason" />
+                    </dd>
+                    <hr class="one_line">
+                    <dt>退款请求号
+：</dt>
+                    <dd>
+                        <input id="WIDTRout_request_no" name="WIDTRout_request_no" />
+                    </dd>
+                    <hr class="one_line">
+                    <dt></dt>
+                    <dd>
+                        <span style="line-height: 28px; color:red;">注意：如是部分退款，则参数退款单号（out_request_no）必传。</span>
+                    </dd>
+                    <dd id="btn-dd">
+                        <span class="new-btn-login-sp">
+                            <button class="new-btn-login" type="submit" style="text-align:center;">退 款</button>
+                        </span>
+                        <span class="note-help">商户订单号与支付宝交易号二选一，如果您点击“退款”按钮，即表示您同意该次的执行操作。</span> 
+                    </dd>
+                </dl>
+            </div>
+        </form>
+        <form name=traderefundquery action=pagepay/refundquery.php method=post target="_blank">
+            {{ csrf_field() }}
+            <div id="body4" class="tab-content" name="divcontent">
+                <dl class="content">
+                    <dt>商户订单号
+：</dt>
+                    <dd>
+                        <input id="WIDRQout_trade_no" name="WIDRQout_trade_no" />
+                    </dd>
+                    <hr class="one_line">
+                    <dt>支付宝交易号
+：</dt>
+                    <dd>
+                        <input id="WIDRQtrade_no" name="WIDRQtrade_no" />
+                    </dd>
+                    <hr class="one_line">
+                    <dt>退款请求号
+：</dt>
+                    <dd>
+                        <input id="WIDRQout_request_no" name="WIDRQout_request_no" />
+                    </dd>
+                    <hr class="one_line">
+                    <dt></dt>
+                    <dd>
+                        <span style="line-height: 28px; color:red;">注意：退款请求号值（必传，退款时传的值，如果退款时没传则无法查询）商户订单号和支付宝交易号不能同时为空。 trade_no、  out_trade_no如果同时存在优先取trade_no</span>
+                    </dd>
+                    <dd id="btn-dd">
+                        <span class="new-btn-login-sp">
+                            <button class="new-btn-login" type="submit" style="text-align:center;">退 款 查 询</button>
+                        </span>
+                        <span class="note-help">商户订单号与支付宝交易号二选一，如果您点击“退款查询”按钮，即表示您同意该次的执行操作。</span> 
+                    </dd>
+                </dl>
+            </div>
+        </form>
+        <form name=tradeclose action=pagepay/close.php method=post target="_blank">
+            {{ csrf_field() }}
+            <div id="body5"  class="tab-content" name="divcontent">
+                <dl class="content">
+                    <dt>商户订单号
+：</dt>
+                    <dd>
+                        <input id="WIDTCout_trade_no" name="WIDTCout_trade_no" />
+                    </dd>
+                    <hr class="one_line">
+                    <dt>支付宝交易号
+：</dt>
+                    <dd>
+                        <input id="WIDTCtrade_no" name="WIDTCtrade_no" />
+                    </dd>
+                    <hr class="one_line">
+                    <dt></dt>
+                    <dd>
+                        <span style="line-height: 28px; color:red;">注意：商户订单号和支付宝交易号不能同时为空。 trade_no、  out_trade_no如果同时存在优先取trade_no</span>
+                    </dd>
+                    <dd id="btn-dd">
+                        <span class="new-btn-login-sp">
+                            <button class="new-btn-login" type="submit" style="text-align:center;">交 易 关 闭</button>
+                        </span>
+                        <span class="note-help">商户订单号与支付宝交易号二选一，如果您点击“交易关闭”按钮，即表示您同意该次的执行操作。</span> 
+                    </dd>
+                </dl>
+            </div>
+        </form>
         <div id="foot">
 			<ul class="foot-ul">
 				<li>
@@ -190,6 +370,27 @@
 	</div>
 </body>
 <script language="javascript">
+    var tabs = document.getElementsByName('tab');
+    var contents = document.getElementsByName('divcontent');
+
+    (function changeTab(tab) {
+        for(var i = 0, len = tabs.length; i < len; i++) {
+            tabs[i].onmouseover = showTab;
+        }
+    })();
+
+    function showTab() {
+        for(var i = 0, len = tabs.length; i < len; i++) {
+            if(tabs[i] === this) {
+                tabs[i].className = 'selected';
+                contents[i].className = 'show';
+            } else {
+                tabs[i].className = '';
+                contents[i].className = 'tab-content';
+            }
+        }
+    }
+
 	function GetDateNow() {
 		var vNow = new Date();
 		var sNow = "";
@@ -203,7 +404,6 @@
 		document.getElementById("WIDout_trade_no").value =  sNow;
 		document.getElementById("WIDsubject").value = "测试";
 		document.getElementById("WIDtotal_amount").value = "0.01";
-        document.getElementById("WIDbody").value = "购买测试商品0.01元";
 	}
 	GetDateNow();
 </script>

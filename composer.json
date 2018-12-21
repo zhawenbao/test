@@ -30,7 +30,7 @@
 //        "lokielse/omnipay-alipay": "^2.0",
         "classmap": [
             "database",
-            "app/Libs/alipay"
+            "app/Alipay"
         ],
         "psr-4": {
             "App\\": "app/"

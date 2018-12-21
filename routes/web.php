@@ -28,6 +28,7 @@ Route::prefix('admin')->group(function () { //后台路由
     Route::get('maopao', "Admin\Index@maoPao"); //冒泡
     Route::get('sort', "Admin\Index@phpSort"); //冒泡
     Route::get('transfer', "Admin\Pay@transfer"); //转账
+    Route::post('pagePay', "Admin\Pay@PagePay"); //
 
 
 });
