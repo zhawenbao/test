@@ -12,7 +12,5 @@
 */
 
 Route::prefix('wx')->group(function () { //后台路由
-    Route::get('index', "Wx\Index@index"); //首页
-    Route::get('token', "Wx\Index@getAccessToken"); //token
-    Route::get('wxindex', "Wx\WxSample@valid"); //token
+    Route::get('valid', "Wx\Index@valid"); //首页
 });
