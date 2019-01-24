@@ -36,7 +36,8 @@ class Index extends Controller
     public function index()
     {
         // 校验服务器
-         $echoStr = $_GET["echostr"];
+        dump($_GET);
+//         $echoStr = $_GET["echostr"];
          if($this->checkSignature()){
          	echo $echoStr;
          }
