@@ -40,7 +40,7 @@ class Index extends Controller
          if($this->checkSignature()){
          	echo $echoStr;
          }
-//        $this->reply();
+        $this->reply();
     }
     /**
      * [checkSignature 校验微信签名]
