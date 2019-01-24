@@ -17,6 +17,7 @@ class Index extends Controller
     protected $appid = 'wx62c2f1f5d67a793b';  // 开发者ID
     protected $appsecret = '94fcb6241c4689ce75fb3bd83ed0319f'; // 开发者秘钥
     protected $postObj;
+    //17_blLMB12d-ybI2hIOfhdw9hOBVXuxFw3Gbzb284Ih8IDQcIqyHaU8wwUArmxlXWCERv0u4HpDU7x0QRQIVgD6n97xo04p4ThCdO722socehpPdIEwe9mm1WSjxJYagDT-v38iPmx8XOtkeREYFGEfAJALMK
     /**
      * [__construct 构造方法]
      */
@@ -49,10 +50,11 @@ class Index extends Controller
      */
     private function checkSignature()
     {
-        $signature = $_GET["signature"];
-        $timestamp = $_GET["timestamp"];
-        $nonce = $_GET["nonce"];
-
+//        $signature = $_GET["signature"];
+//        $timestamp = $_GET["timestamp"];
+//        $nonce = $_GET["nonce"];
+        dump($_REQUEST);
+        exit;
         $token = self::TOKEN;
         $tmpArr = array($token, $timestamp, $nonce);
         sort($tmpArr, SORT_STRING);
