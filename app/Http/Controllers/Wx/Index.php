@@ -15,7 +15,7 @@ class Index extends Controller
 
     const TOKEN = 'GreatMe'; // Token
     protected $appid = 'wx62c2f1f5d67a793b';  // 开发者ID
-    protected $appsecret = '582d992a2a6bafdb59cbd7a8d9f1986e'; // 开发者秘钥
+    protected $appsecret = '94fcb6241c4689ce75fb3bd83ed0319f'; // 开发者秘钥
     protected $postObj;
     /**
      * [__construct 构造方法]
