@@ -17,6 +17,7 @@ class Index extends Controller
     protected $appid = 'wx62c2f1f5d67a793b';  // 开发者ID
     protected $appsecret = '94fcb6241c4689ce75fb3bd83ed0319f'; // 开发者秘钥
     protected $postObj;
+    protected $test;
     //17_blLMB12d-ybI2hIOfhdw9hOBVXuxFw3Gbzb284Ih8IDQcIqyHaU8wwUArmxlXWCERv0u4HpDU7x0QRQIVgD6n97xo04p4ThCdO722socehpPdIEwe9mm1WSjxJYagDT-v38iPmx8XOtkeREYFGEfAJALMK
     /**
      * [__construct 构造方法]
@@ -25,7 +26,7 @@ class Index extends Controller
     {
         // 处理微信post到开发url上的xml数据包
         $postStr = file_get_contents("php://input");
-        $this->postStr = $a;
+        $this->postStr = $test;
 //        file_put_contents('postStr.xml', $postStr);
         libxml_disable_entity_loader(true);
         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
@@ -38,7 +39,7 @@ class Index extends Controller
     public function index()
     {
         // 校验服务器
-        dump($this->a);
+        dump($this->test);
 //        dump($_GET);
          $echoStr = $_REQUEST["echostr"];
          if($this->checkSignature()){
