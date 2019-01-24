@@ -40,7 +40,7 @@ class Index extends Controller
          if($this->checkSignature()){
          	echo $echoStr;
          }
-        $this->reply();
+//        $this->reply();
     }
     /**
      * [checkSignature 校验微信签名]
@@ -416,6 +416,6 @@ class Index extends Controller
         return $rs;
     }
 }
-//$wx = new Index;
-//$wx->index();
-// $wx->autoMenu(); // 这个是主动接口，需要手动调用
+$wx = new Index;
+$wx->index();
+ $wx->autoMenu(); // 这个是主动接口，需要手动调用
