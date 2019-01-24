@@ -417,5 +417,5 @@ class Index extends Controller
     }
 }
 $wx = new Index;
-$wx->getAccessToken();
+$wx->index();
 // $wx->autoMenu(); // 这个是主动接口，需要手动调用
