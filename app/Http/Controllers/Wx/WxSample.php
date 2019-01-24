@@ -76,8 +76,8 @@ class WxSample extends Controller
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
         $nonce = $_GET["nonce"];
-        		
-		$token = TOKEN;
+
+        $token = self::TOKEN;
 		$tmpArr = array($token, $timestamp, $nonce);
         // use SORT_STRING rule
 		sort($tmpArr, SORT_STRING);
