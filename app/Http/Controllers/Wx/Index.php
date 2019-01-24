@@ -416,6 +416,6 @@ class Index extends Controller
         return $rs;
     }
 }
-$wx = new Wx;
+$wx = new Index;
 $wx->index();
 // $wx->autoMenu(); // 这个是主动接口，需要手动调用
