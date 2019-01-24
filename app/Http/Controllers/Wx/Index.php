@@ -13,7 +13,7 @@ use App\Http\Controllers\Controller;
 class Index extends Controller
 {
 
-    const TOKEN = 'thinksite'; // Token
+    const TOKEN = 'GreatMe'; // Token
     protected $appid = 'wx62c2f1f5d67a793b';  // 开发者ID
     protected $appsecret = '582d992a2a6bafdb59cbd7a8d9f1986e'; // 开发者秘钥
     protected $postObj;
