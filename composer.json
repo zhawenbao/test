@@ -1,4 +1,4 @@
-{
+composer {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
@@ -38,7 +38,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests": "tests/"
         }
     },
     "extra": {
