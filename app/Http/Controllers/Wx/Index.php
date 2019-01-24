@@ -25,7 +25,6 @@ class Index extends Controller
     {
         // 处理微信post到开发url上的xml数据包
         $postStr = file_get_contents("php://input");
-        dump($postStr);
 //        file_put_contents('postStr.xml', $postStr);
         libxml_disable_entity_loader(true);
         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
@@ -38,8 +37,6 @@ class Index extends Controller
     public function index()
     {
         // 校验服务器
-//        dump($this->test);
-        dump($this->postObj);exit;
          $echoStr = $_REQUEST["echostr"];
          if($this->checkSignature()){
          	echo $echoStr;
@@ -60,8 +57,8 @@ class Index extends Controller
         $token = self::TOKEN;
         $tmpArr = array($token, $timestamp, $nonce);
         sort($tmpArr, SORT_STRING);
-        $tmpStr = implode( $tmpArr );
-        $tmpStr = sha1( $tmpStr );
+        $tmpStr = implode($tmpArr);
+        $tmpStr = sha1($tmpStr);
 //        if( $tmpStr == $signature ){
 //            return true;
 //        }else{
