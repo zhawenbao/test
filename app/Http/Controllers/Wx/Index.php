@@ -26,7 +26,7 @@ class Index extends Controller
     {
         // 处理微信post到开发url上的xml数据包
         $postStr = file_get_contents("php://input");
-        $this->postStr = $test;
+        dump($test);
 //        file_put_contents('postStr.xml', $postStr);
         libxml_disable_entity_loader(true);
         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
@@ -39,8 +39,9 @@ class Index extends Controller
     public function index()
     {
         // 校验服务器
-        dump($this->test);
+//        dump($this->test);
 //        dump($_GET);
+        exit;
          $echoStr = $_REQUEST["echostr"];
          if($this->checkSignature()){
          	echo $echoStr;
