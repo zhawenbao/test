@@ -94,8 +94,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Wx/Index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="388" column="25" selection-start-line="388" selection-start-column="25" selection-end-line="388" selection-end-column="25" />
+            <state relative-caret-position="391">
+              <caret line="389" column="27" lean-forward="true" selection-start-line="389" selection-start-column="27" selection-end-line="389" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -362,12 +362,12 @@
       <updated>1544147580683</updated>
       <workItem from="1544147581955" duration="872000" />
       <workItem from="1544163411182" duration="13275000" />
-      <workItem from="1548334078320" duration="3342000" />
+      <workItem from="1548334078320" duration="3460000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17489000" />
+    <option name="totallyTimeSpent" value="17607000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -525,8 +525,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Wx/Index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="388" column="25" selection-start-line="388" selection-start-column="25" selection-end-line="388" selection-end-column="25" />
+        <state relative-caret-position="391">
+          <caret line="389" column="27" lean-forward="true" selection-start-line="389" selection-start-column="27" selection-end-line="389" selection-end-column="27" />
         </state>
       </provider>
     </entry>

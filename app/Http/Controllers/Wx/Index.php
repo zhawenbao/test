@@ -386,7 +386,7 @@ class Index extends Controller
         $api = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appid}&secret={$appsecret}";
         $rs = $this->httpRequest($api);
         $data = json_decode($rs, 1);
-        dump($data);exit;
+//        dump($data);exit;
         return $data['access_token'];
     }
     /**
