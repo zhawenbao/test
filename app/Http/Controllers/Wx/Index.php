@@ -38,7 +38,7 @@ class Index extends Controller
     {
         // 校验服务器
 //        dump($this->test);
-        dump($this->postObj);
+        dump($this->postObj);exit;
          $echoStr = $_REQUEST["echostr"];
          if($this->checkSignature()){
          	echo $echoStr;

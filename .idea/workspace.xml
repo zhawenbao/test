@@ -70,12 +70,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="167" />
+          <entry key="php" value="172" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="167" />
+          <entry key="PHP" value="172" />
         </counts>
       </usages-collector>
     </session>
@@ -95,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Wx/Index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
-              <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+              <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -362,12 +362,12 @@
       <updated>1544147580683</updated>
       <workItem from="1544147581955" duration="872000" />
       <workItem from="1544163411182" duration="13275000" />
-      <workItem from="1548334078320" duration="6473000" />
+      <workItem from="1548334078320" duration="6572000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20620000" />
+    <option name="totallyTimeSpent" value="20719000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -526,7 +526,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Wx/Index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
-          <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+          <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
         </state>
       </provider>
     </entry>
