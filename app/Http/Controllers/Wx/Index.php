@@ -15,7 +15,7 @@ class Index extends Controller
 
     const TOKEN = 'GreatMe'; // Token
     protected $appid = 'wx62c2f1f5d67a793b';  // 开发者ID
-    protected $appsecret = '94fcb6241c4689ce75fb3bd83ed0319f'; // 开发者秘钥
+    protected $appsecret = '50c7113e88ad408f45042e0507ec69ff'; // 开发者秘钥
     protected $postObj;
     //17_blLMB12d-ybI2hIOfhdw9hOBVXuxFw3Gbzb284Ih8IDQcIqyHaU8wwUArmxlXWCERv0u4HpDU7x0QRQIVgD6n97xo04p4ThCdO722socehpPdIEwe9mm1WSjxJYagDT-v38iPmx8XOtkeREYFGEfAJALMK
     /**
@@ -59,12 +59,11 @@ class Index extends Controller
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
         $tmpStr = sha1($tmpStr);
-//        if( $tmpStr == $signature ){
-//            return true;
-//        }else{
-//            return false;
-//        }
-        return true;
+        if( $tmpStr == $signature ){
+            return true;
+        }else{
+            return false;
+        }
     }
     /**
      * [reply 回复消息]
