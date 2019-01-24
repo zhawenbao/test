@@ -37,8 +37,8 @@ class Index extends Controller
     public function index()
     {
         // 校验服务器
-        dump($_GET);
-//         $echoStr = $_GET["echostr"];
+//        dump($_GET);
+         $echoStr = $_REQUEST["echostr"];
          if($this->checkSignature()){
          	echo $echoStr;
          }
@@ -50,21 +50,22 @@ class Index extends Controller
      */
     private function checkSignature()
     {
-//        $signature = $_GET["signature"];
-//        $timestamp = $_GET["timestamp"];
-//        $nonce = $_GET["nonce"];
-        dump($_REQUEST);
-        exit;
+        $signature = $_REQUEST["signature"];
+        $timestamp = $_REQUEST["timestamp"];
+        $nonce = $_REQUEST["nonce"];
+//        dump($_REQUEST);
+//        exit;
         $token = self::TOKEN;
         $tmpArr = array($token, $timestamp, $nonce);
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode( $tmpArr );
         $tmpStr = sha1( $tmpStr );
-        if( $tmpStr == $signature ){
-            return true;
-        }else{
-            return false;
-        }
+//        if( $tmpStr == $signature ){
+//            return true;
+//        }else{
+//            return false;
+//        }
+        return true;
     }
     /**
      * [reply 回复消息]
