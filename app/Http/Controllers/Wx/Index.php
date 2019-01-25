@@ -5,8 +5,8 @@
 
 //define your token
 namespace App\Http\Controllers\Wx;
-use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Controller;
 
 class Index extends Controller
 {
