@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 
 class Index extends Controller
 {
-    const TOKEN = "weixin";
+    public const TOKEN = "weixin";
 
     public function __construct()
     {
