@@ -7,20 +7,23 @@
 namespace App\Http\Controllers\Wx;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Input;
 
 class Index extends Controller
 {
-    public const TOKEN = "weixin";
+    private $token;
+    private $secret;
+    private $app_id;
 
     public function __construct()
     {
-
+        $this->token = config('wechat.official_account.default.token');
+        $this->secret = config('wechat.official_account.default.secret');
+        $this->app_id = config('wechat.official_account.default.app_id');
     }
 
     public function valid()
     {
-        $echoStr = Input::get["echostr"];
+        $echoStr = $_GET["echostr"];
 
         //valid signature , option
         if($this->checkSignature()){
@@ -68,12 +71,11 @@ class Index extends Controller
 
     private function checkSignature()
     {
-        $signature = Input::get["signature"];
-        $timestamp = Input::get["timestamp"];
-        $nonce = Input::get["nonce"];
+        $signature = $_GET["signature"];
+        $timestamp = $_GET["timestamp"];
+        $nonce = $_GET["nonce"];
 
-        $token = self::TOKEN;
-        $tmpArr = array($token, $timestamp, $nonce);
+        $tmpArr = array($this->token, $timestamp, $nonce);
         sort($tmpArr);
         $tmpStr = implode( $tmpArr );
         $tmpStr = sha1( $tmpStr );
