@@ -7,6 +7,7 @@
 namespace App\Http\Controllers\Wx;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 class Index extends Controller
 {
@@ -19,7 +20,7 @@ class Index extends Controller
 
     public function valid()
     {
-        $echoStr = $_GET["echostr"];
+        $echoStr = Input::get["echostr"];
 
         //valid signature , option
         if($this->checkSignature()){
@@ -67,9 +68,9 @@ class Index extends Controller
 
     private function checkSignature()
     {
-        $signature = $_GET["signature"];
-        $timestamp = $_GET["timestamp"];
-        $nonce = $_GET["nonce"];
+        $signature = Input::get["signature"];
+        $timestamp = Input::get["timestamp"];
+        $nonce = Input::get["nonce"];
 
         $token = self::TOKEN;
         $tmpArr = array($token, $timestamp, $nonce);
