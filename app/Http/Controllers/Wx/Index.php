@@ -23,8 +23,8 @@ class Index extends Controller
 
     public function valid()
     {
-        $echoStr = $_GET["echostr"];
 
+        $echoStr = $_GET["echostr"];
         //valid signature , option
         if($this->checkSignature()){
             echo $echoStr;

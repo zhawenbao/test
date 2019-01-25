@@ -12,5 +12,5 @@
 */
 
 Route::prefix('wx')->group(function () { //后台路由
-    Route::get('valid', "Wx\Index@valid"); //首页
+    Route::get('valid', "Wx\WxSample@index"); //首页
 });
