@@ -18,5 +18,6 @@ Route::prefix('wx')->group(function () { //后台路由
 Route::prefix('home')->group(function () { //后台路由
     Route::match(['post','get'],'file', "Home\UploadFile@upload"); //首页
     Route::match(['post','get'],'file1', "Home\UploadFile@upload1"); //首页
+    Route::match(['post','get'],'redis', "Home\UploadFile@redisInfo"); //首页
 });
 

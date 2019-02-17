@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UploadFile extends Controller
 {
@@ -43,5 +44,12 @@ class UploadFile extends Controller
             "/upload/". date("Ymd", time()) . '/' . $_FILES["fileName"]["name"]); //移动文件
         echo "Stored in: " . "/upload/" . date("Ymd", time()) . '/' . $_FILES["fileName"]["name"]; // 输出文件
 
+    }
+
+    public function redisInfo()
+    {
+        //获取所有数据
+        $data = DB::table('t_goods')->get();
+        dump($data);
     }
 }
