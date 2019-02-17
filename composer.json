@@ -1,4 +1,4 @@
-composer {
+{
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
@@ -26,19 +26,9 @@ composer {
             "App\\": "app/"
         }
     },
-    "autoload": {
-//        "lokielse/omnipay-alipay": "^2.0",
-        "classmap": [
-            "database",
-            "app/Alipay"
-        ],
-        "psr-4": {
-            "App\\": "app/"
-        }
-    },
     "autoload-dev": {
         "psr-4": {
-            "Tests": "tests/"
+            "Tests\\": "tests/"
         }
     },
     "extra": {
