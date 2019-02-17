@@ -11,13 +11,18 @@
 |
 */
 
-Route::prefix('wx')->group(function () { //后台路由
-    Route::get('valid', "Wx\WxSample@index"); //首页
+Route::get('/', function () {
+    return view('welcome');
 });
 
-Route::prefix('home')->group(function () { //后台路由
-    Route::match(['post','get'],'file', "Home\UploadFile@upload"); //首页
-    Route::match(['post','get'],'file1', "Home\UploadFile@upload1"); //首页
-    Route::match(['post','get'],'redis', "Home\UploadFile@redisInfo"); //首页
-});
+Auth::routes();
 
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'PostController@index')->name('home');
+Route::get('/create', 'PostController@create')->name('create');
+Route::post('createPost', 'PostController@store')->name('store');
+Route::get('/edit/{id}', 'PostController@edit')->name('edit');
+Route::post('updatePost/{id}', 'PostController@update')->name('update');
+Route::delete('deletePost/{id}', 'PostController@destroy')->name('destroy');
+Route::get('noPosts', 'PostController@noPosts')->name('noPosts');
+Route::get('decompose','\Lubusin\Decomposer\Controllers\DecomposerController@index')->name('decomposer');
